@@ -1,14 +1,10 @@
 #pragma once
 #include "Sprite.h"
-class Player :
+class Boss :
 	public Sprite
 {
 public:
-	Player();
+	Boss();
 	void Update() override;
 };
 
-class PlayerMNG : public Singleton<PlayerMNG>
-{
-
-};
