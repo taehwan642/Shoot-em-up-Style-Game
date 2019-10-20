@@ -4,4 +4,3 @@ class Bullet :
 	public Sprite
 {
 };
-

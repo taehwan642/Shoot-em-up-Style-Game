@@ -384,10 +384,13 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Director.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="Label.cpp" />
+    <ClCompile Include="MainScene.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Renderer.cpp" />
@@ -396,10 +399,13 @@
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Texture2D.cpp" />
     <ClCompile Include="Types.cpp" />
+    <ClInclude Include="Boss.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Director.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="Label.h" />
+    <ClInclude Include="MainScene.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Renderer.h" />

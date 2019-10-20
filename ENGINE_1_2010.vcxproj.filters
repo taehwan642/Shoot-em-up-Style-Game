@@ -54,6 +54,21 @@
     <Filter Include="GAME\Scene\GameScene">
       <UniqueIdentifier>{fdc24cc7-11f8-4580-b3d3-45ece20e3741}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GAME\Scene\MainScene">
+      <UniqueIdentifier>{c6512a3d-0031-4c49-8808-47cc55579ac1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\Characters">
+      <UniqueIdentifier>{e5533b92-33d6-4a7a-bcb7-ce2e7665622c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\Characters\Boss">
+      <UniqueIdentifier>{58f92fc1-13d1-4009-867a-ae0c07d827ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\Characters\Bullet">
+      <UniqueIdentifier>{92b6a683-2911-445b-a91c-94ad34e6ede3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\Characters\Player">
+      <UniqueIdentifier>{ef94da53-fdd4-456e-a1eb-b38334034b6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="DXUT\Optional\directx.ico">
@@ -149,6 +164,18 @@
     <ClCompile Include="Sound.cpp">
       <Filter>ENGINE\Sound</Filter>
     </ClCompile>
+    <ClCompile Include="MainScene.cpp">
+      <Filter>GAME\Scene\MainScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>GAME\Characters\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>GAME\Characters\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>GAME\Characters\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -189,6 +216,18 @@
     </ClInclude>
     <ClInclude Include="Sound.h">
       <Filter>ENGINE\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="MainScene.h">
+      <Filter>GAME\Scene\MainScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>GAME\Characters\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>GAME\Characters\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>GAME\Characters\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

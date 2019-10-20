@@ -83,7 +83,7 @@ int main()
     DXUTCreateWindow( L"ENGINE_1" );
     DXUTCreateDevice( true, 320, 700 );
 
-	Director::GetInstance()->ChangeScene(new GameScene);
+	Director::GetInstance()->ChangeScene(new MainScene);
 
     // Start the render loop
     DXUTMainLoop();

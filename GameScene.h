@@ -3,6 +3,8 @@
 #include "Types.h"
 #include "Sprite.h"
 #include "Camera.h"
+#include "MainScene.h"
+#include "Boss.h"
 class GameScene :
 	public Scene
 {
