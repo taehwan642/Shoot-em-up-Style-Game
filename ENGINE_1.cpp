@@ -7,7 +7,7 @@
 #include "resource.h"
 #include "Director.h"
 #include "GameScene.h"
-
+//cout << "X : " << _position.x << "Y : " << _position.y << endl;
 //--------------------------------------------------------------------------------------
 // Create any D3D9 resources that will live through a device reset (D3DPOOL_MANAGED)
 // and aren't tied to the back buffer size
@@ -81,7 +81,7 @@ int main()
     DXUTSetHotkeyHandling( true, true, true );  // handle the default hotkeys
     DXUTSetCursorSettings( true, true ); // Show the cursor and clip it when in full screen
     DXUTCreateWindow( L"ENGINE_1" );
-    DXUTCreateDevice( true, 320, 700 );
+    DXUTCreateDevice( true, 360, 640 );
 
 	Director::GetInstance()->ChangeScene(new MainScene);
 

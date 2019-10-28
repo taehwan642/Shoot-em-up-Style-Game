@@ -5,6 +5,10 @@ class Boss :
 {
 public:
 	Boss();
+	float fTime;
+	float fPos;
+	int HP;
+	void Pattern1();
 	void Update() override;
 };
 
