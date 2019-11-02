@@ -5,6 +5,7 @@
 #include "Camera.h"
 #include "MainScene.h"
 #include "Boss.h"
+#include "Player.h"
 class GameScene :
 	public Scene
 {

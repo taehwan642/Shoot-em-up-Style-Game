@@ -39,7 +39,7 @@ void Boss::Pattern1()
 
 void Boss::Update()
 {
-	//MoveMent();
+	MoveMent();
 	
 	if (HP <= 0) 
 		_visible = false;

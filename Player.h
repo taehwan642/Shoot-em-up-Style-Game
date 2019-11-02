@@ -5,10 +5,14 @@ class Player :
 {
 public:
 	Player();
+	float fmovespeed;
+	void MoveMent();
 	void Update() override;
 };
 
 class PlayerMNG : public Singleton<PlayerMNG>
 {
-
+public:
+	Player* player;
+	void CreatePlayer();
 };

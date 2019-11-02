@@ -69,6 +69,9 @@
     <Filter Include="GAME\Characters\Player">
       <UniqueIdentifier>{ef94da53-fdd4-456e-a1eb-b38334034b6b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GAME\Characters\BossBullet">
+      <UniqueIdentifier>{3a4932b4-f7a7-466d-b760-1932b8b1c968}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="DXUT\Optional\directx.ico">
@@ -176,6 +179,9 @@
     <ClCompile Include="Player.cpp">
       <Filter>GAME\Characters\Player</Filter>
     </ClCompile>
+    <ClCompile Include="BossBullet.cpp">
+      <Filter>GAME\Characters\BossBullet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -228,6 +234,9 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>GAME\Characters\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBullet.h">
+      <Filter>GAME\Characters\BossBullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

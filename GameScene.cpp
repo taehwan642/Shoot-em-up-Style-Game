@@ -4,6 +4,7 @@
 void GameScene::Init()
 {
 	BossMNG::GetInstance()->CreateBoss();
+	PlayerMNG::GetInstance()->CreatePlayer();
 	cout << "Game" << endl;
 
 }
@@ -17,5 +18,5 @@ void GameScene::Update()
 void GameScene::OnExit()
 {
 	delete BossMNG::GetInstance()->boss;
-
+	delete PlayerMNG::GetInstance()->player;
 }
