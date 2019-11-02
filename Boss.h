@@ -8,6 +8,7 @@ public:
 	float fTime;
 	float fPos;
 	int HP;
+	void MoveMent();
 	void Pattern1();
 	void Update() override;
 };
@@ -15,7 +16,6 @@ public:
 class BossMNG : public Singleton<BossMNG>
 {
 public:
-	std::unique_ptr<Boss> bos;
-
+	Boss* boss;
 	void CreateBoss();
 };

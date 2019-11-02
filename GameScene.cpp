@@ -16,5 +16,6 @@ void GameScene::Update()
 
 void GameScene::OnExit()
 {
-	BossMNG::GetInstance()->bos.reset();
+	delete BossMNG::GetInstance()->boss;
+
 }
