@@ -6,11 +6,11 @@ void GameScene::Init()
 	BossMNG::GetInstance()->CreateBoss();
 	PlayerMNG::GetInstance()->CreatePlayer();
 	cout << "Game" << endl;
-
 }
 
 void GameScene::Update()
 {
+
 	if (DXUTWasKeyPressed('P'))
 		Director::GetInstance()->ChangeScene(new MainScene);
 }

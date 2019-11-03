@@ -9,6 +9,7 @@ public:
 	float fPos;
 	int HP;
 	void MoveMent();
+	void BossMoveMent(float position, float cycle, float radius);
 	void Pattern1();
 	void Update() override;
 };

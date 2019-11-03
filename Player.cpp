@@ -3,10 +3,10 @@
 
 Player::Player()
 {
-	Create(L"Player.png");
+	Create(L"redplane.png");
 	fmovespeed = 6.5f;
 	isUI = true;
-	_scale = { 2,2 };
+	_scale = { 1,1 };
 	_position.x = 180;
 	_position.y = 500;
 	_visible = true;
