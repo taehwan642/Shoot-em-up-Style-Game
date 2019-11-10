@@ -6,7 +6,7 @@ void GameScene::Init()
 	backGround = new Sprite();
 	backGround->Create(L"ENGINE_1.jpg");
 	backGround->isUI = false;
-	backGround->_scale = { 20,10 };
+	backGround->_scale = { 1,1 };
 	BossMNG::GetInstance()->CreateBoss();
 	PlayerMNG::GetInstance()->CreatePlayer();
 	BulletMNG::GetInstance()->CreateBullet();
@@ -17,10 +17,12 @@ void GameScene::Init()
 	collider->isUI = false;
 	cout << "Game" << endl;
 
-	
+	PlayerMNG::GetInstance()->player->_position = { 0,0 };
 
 
-	Camera::GetInstance()->_CameraSize =1;
+	mousepointer = { 0,0 };
+
+	Camera::GetInstance()->_CameraSize = 1;
 
 }
 
@@ -31,12 +33,19 @@ void GameScene::Update()
 
 	collider->_position = PlayerMNG::GetInstance()->player->_position;
 
-	PlayerMNG::GetInstance()->player->Goto(Director::GetInstance()->GetMousePos(),500);
+	mousepointer = Director::GetInstance()->GetMousePos();
+
+	mousepointer -= { (360/2) * Camera::GetInstance()->_CameraSize , (720/2) * Camera::GetInstance()->_CameraSize};
+
+	//카메라가 움직이면, 카메라가 움직인 만큼 Sprite도 더 가야함.
+
+	cout << PlayerMNG::GetInstance()->player->_position.x << " " << mousepointer.x << endl;
+	// - 180, -360 더 가야함
+	backGround->Goto(mousepointer, 500);
 
 	if (Director::GetInstance()->OnMouseDown())
 	{
 		cout << PlayerMNG::GetInstance()->player->_position.x << " " << PlayerMNG::GetInstance()->player->_position.y << endl;
-
 		cout << Director::GetInstance()->p.x << " " << Director::GetInstance()->p.y << endl;
 	}
 
