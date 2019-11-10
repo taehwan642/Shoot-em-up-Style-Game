@@ -14,7 +14,7 @@ Boss::Boss()
 	_position.x = 180;
 	_position.y = 30;
 	_visible = true;
-	isUI = true;
+	isUI = false;
 }
 
 //Boss Needs 3 Patterns;

@@ -75,6 +75,20 @@ bool Sprite::Goto(Sprite* target, float Speed)
 	return false;
 }	
 
+bool Sprite::Goto(vector2  target, float Speed)
+{
+	v = target - _position;
+	float size = sqrt(v.x * v.x + v.y * v.y);
+	if (size < 100)
+		return true;
+	v.x /= size;
+	v.y /= size;
+//	_rotation = atan2(v.y, v.x);
+
+	_position += v * Speed * Time::deltaTime;
+	return false;
+}
+
 RECT Sprite::GetRect()
 {
 	RECT r = { 0,0,0,0 };

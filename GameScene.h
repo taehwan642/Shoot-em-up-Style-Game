@@ -12,6 +12,7 @@ class GameScene :
 {
 public:
 	Sprite* collider;
+	Sprite* backGround;
 	void Init() override;
 	void Update() override;
 	void OnExit() override;

@@ -21,6 +21,7 @@ public:
 	float GetDistance(Sprite* target);
 	void LookAt(Sprite* target);
 	bool Goto(Sprite* target,float Speed);
+	bool Goto(vector2 target, float Speed);
 
 	RECT GetRect();
 

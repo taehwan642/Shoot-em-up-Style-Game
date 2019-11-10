@@ -4,7 +4,7 @@
 Bullet::Bullet()
 {
 	Create(L"redbullet.png");
-	isUI = true;
+	isUI = false;
 	movespeed = 6.5f;
 	_visible = false;
 	_position = { 900,900 };
@@ -40,6 +40,7 @@ void BulletMNG::SpawnBullet()
 		{
 			it->_position = PlayerMNG::GetInstance()->player->_position;
 			it->_visible = true;
+			return;
 		}
 	}
 }
