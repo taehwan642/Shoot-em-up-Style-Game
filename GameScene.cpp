@@ -32,17 +32,27 @@ void GameScene::Update()
 	Camera::GetInstance()->SetPos(PlayerMNG::GetInstance()->player->_position);
 	//카메라디스턴스   카메라가 움직인 거리 만큼, 0,0에서 카메라가 움직인 만큼 더 가줘야함
 
-	//cameramovedistance -= PlayerMNG::GetInstance()->player->_position;
+	vector2 campos = PlayerMNG::GetInstance()->player->_position;
 
 	collider->_position = PlayerMNG::GetInstance()->player->_position;
 
-	mousepointer = Director::GetInstance()->GetMousePos();
+	mousepointer = Director::GetInstance()->GetMousePos() * Camera::GetInstance()->_CameraSize;
+	//180 * 2
 
-	mousepointer -= { (360/2) * Camera::GetInstance()->_CameraSize , (720/2) * Camera::GetInstance()->_CameraSize};
+	//360 -= (180 - 100) * 2 = 200
+	// 160 -> 
+	//원하는 값 = 100
+	//360 - 360 - 100;
 
+
+	//mousepointer -= { (180 - campos.x/2) * Camera::GetInstance()->_CameraSize
+	//	, (360 - campos.y/2) * Camera::GetInstance()->_CameraSize};
+	mousepointer -= {180 * 1 - campos.x, 360 * 1 - campos.y};
+	//??????!?!??!?!?!?
+	//2배로 움직이는걸 막으면, 완벽한 놈이 됨 그걸 해보도ㅗ록 하자 :)
 	//카메라가 움직이면, 카메라가 움직인 만큼 Sprite도 더 가야함.
 
-	cout << PlayerMNG::GetInstance()->player->_position.x << " " << mousepointer.x << endl;
+	cout << campos.x << " " << mousepointer.x << endl;
 	// - 180, -360 더 가야함
 	backGround->Goto(mousepointer, 500);
 
