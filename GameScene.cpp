@@ -18,7 +18,7 @@ void GameScene::Init()
 	cout << "Game" << endl;
 
 	PlayerMNG::GetInstance()->player->_position = { 0,0 };
-
+	cameramovedistance = PlayerMNG::GetInstance()->player->_position;
 
 	mousepointer = { 0,0 };
 
@@ -30,6 +30,9 @@ void GameScene::Update()
 {
 	Camera::GetInstance()->Update();
 	Camera::GetInstance()->SetPos(PlayerMNG::GetInstance()->player->_position);
+	//카메라디스턴스   카메라가 움직인 거리 만큼, 0,0에서 카메라가 움직인 만큼 더 가줘야함
+
+	//cameramovedistance -= PlayerMNG::GetInstance()->player->_position;
 
 	collider->_position = PlayerMNG::GetInstance()->player->_position;
 
