@@ -83,7 +83,6 @@ bool Sprite::Goto(vector2  target, float Speed)
 		return true;
 	v.x /= size;
 	v.y /= size;
-//	_rotation = atan2(v.y, v.x);
 
 	_position += v * Speed * Time::deltaTime;
 	return false;

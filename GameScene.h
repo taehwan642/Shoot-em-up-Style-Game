@@ -7,6 +7,10 @@
 #include "Boss.h"
 #include "Player.h"
 #include "Bullet.h"
+
+#define  CameraSize  Camera::GetInstance()->_CameraSize
+#define PlayerPos PlayerMNG::GetInstance()->player->_position
+
 class GameScene :
 	public Scene
 {
