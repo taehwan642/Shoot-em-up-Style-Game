@@ -6,6 +6,7 @@ Bullet::Bullet()
 	Create(L"redbullet.png");
 	isUI = false;
 	movespeed = 6.5f;
+	falivetime = 5;
 	_visible = false;
 	_position = { 900,900 };
 }
@@ -14,13 +15,23 @@ void Bullet::CollisionCheck()
 {
 }
 
-void Bullet::Update()
+void Bullet::AliveCheck()
 {
-	_position.y -= movespeed;
-	if (_position.y < 0)
+	if (!_visible)
+		return;
+	falivetime -= Time::deltaTime;
+	
+	if (falivetime < 0)
 	{
 		_visible = false;
+		falivetime = 5;	
 	}
+}
+
+void Bullet::Update()
+{
+	AliveCheck();
+	_position.y -= movespeed;
 }
 
 void BulletMNG::CreateBullet()

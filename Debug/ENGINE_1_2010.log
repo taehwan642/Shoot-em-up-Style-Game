@@ -1,2 +1,3 @@
 ﻿  GameScene.cpp
-  ENGINE_1_2010.vcxproj -> C:\Users\skill_7\Downloads\TouHou-Project-DX9-master (3)\TouHou-Project-DX9-master\Debug\ENGINE_1.exe
+Boss.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  ENGINE_1_2010.vcxproj -> C:\Users\taehw\Downloads\TouHou-Project-DX9-master\TouHou-Project-DX9-master\Debug\ENGINE_1.exe

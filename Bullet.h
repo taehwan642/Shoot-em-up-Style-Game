@@ -7,7 +7,9 @@ class Bullet :
 public:
 	Bullet();
 	float movespeed;
+	float falivetime;
 	void CollisionCheck();
+	void AliveCheck();
 	void Update() override;
 };
 

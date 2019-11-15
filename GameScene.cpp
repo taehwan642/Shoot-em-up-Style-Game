@@ -7,11 +7,11 @@ void GameScene::Init()
 	backGround->Create(L"ENGINE_1.jpg");
 	backGround->isUI = false;
 	backGround->_scale = { 1,1 };
+	Camera::GetInstance()->CameraInit();
 	BossMNG::GetInstance()->CreateBoss();
 	PlayerMNG::GetInstance()->CreatePlayer();
 	BulletMNG::GetInstance()->CreateBullet();
 
-	Camera::GetInstance()->CameraInit();
 	collider = new Sprite();
 	collider->Create(L"collider.png");
 	collider->isUI = false;
@@ -22,13 +22,12 @@ void GameScene::Init()
 
 	mousepointer = { 0,0 };
 
-	Camera::GetInstance()->_CameraSize = 2;
+	Camera::GetInstance()->_CameraSize = 1.5f;
 
 }
 
 void GameScene::Update()
 {
-	Camera::GetInstance()->Update();
 	Camera::GetInstance()->SetPos(PlayerPos);
 
 	vector2 campos = PlayerPos;
@@ -42,7 +41,6 @@ void GameScene::Update()
 	//mousepointer -= { (180 - campos.x/2) * Camera::GetInstance()->_CameraSize
 	//	, (360 - campos.y/2) * Camera::GetInstance()->_CameraSize};
 	mousepointer -= {180 * CameraSize - campos.x, 360 * CameraSize - campos.y};
-	//??????!?!??!?!?!?
 
 	backGround->Goto(mousepointer, 500);
 
@@ -60,6 +58,7 @@ void GameScene::Update()
 
 	if (DXUTWasKeyPressed('P'))
 		Director::GetInstance()->ChangeScene(new MainScene);
+	Camera::GetInstance()->Update();
 }
 
 void GameScene::OnExit()
