@@ -17,6 +17,7 @@ class GameScene :
 public:
 	Sprite* collider;
 	Sprite* backGround;
+	Sprite* BackGroundScroll[2];
 	vector2 cameramovedistance;
 	vector2 mousepointer;
 	void Init() override;
