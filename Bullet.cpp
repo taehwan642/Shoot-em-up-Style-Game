@@ -8,6 +8,7 @@ Bullet::Bullet()
 	movespeed = 6.5f;
 	falivetime = 5;
 	_visible = false;
+	_scale = { 0.7f,0.7f };
 	_position = { 900,900 };
 }
 

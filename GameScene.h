@@ -7,8 +7,8 @@
 #include "Boss.h"
 #include "Player.h"
 #include "Bullet.h"
+#include "BossBullet.h"
 
-#define  CameraSize  Camera::GetInstance()->_CameraSize
 #define PlayerPos PlayerMNG::GetInstance()->player->_position
 
 class GameScene :
@@ -16,10 +16,10 @@ class GameScene :
 {
 public:
 	Sprite* collider;
-	Sprite* backGround;
 	Sprite* BackGroundScroll[2];
-	vector2 cameramovedistance;
+	vector2 cameraPos;
 	vector2 mousepointer;
+	vector2 bossbulletdir;
 	void Init() override;
 	void Update() override;
 	void OnExit() override;

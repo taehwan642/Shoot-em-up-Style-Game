@@ -8,9 +8,8 @@ Boss::Boss()
 	fTime = 0;
 	fPos = 0;
 	HP = 10;
-	/*_scale.x = 0.005f;
-	_scale.y = 0.005f;*/
-	_scale = { 1,1 };
+	
+	_scale = { 0.7f,0.7f };
 	_position.x = 180;
 	_position.y = 30;
 	_visible = true;

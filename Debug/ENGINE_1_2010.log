@@ -1,6 +1,4 @@
-﻿  ENGINE_1.cpp
-  GameScene.cpp
-  MainScene.cpp
-  코드를 생성하고 있습니다...
-C:\Users\skill_7\Downloads\Shoot-em-up-Style-Game-master\Shoot-em-up-Style-Game-master\ENGINE_1.cpp(18,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  ENGINE_1_2010.vcxproj -> C:\Users\skill_7\Downloads\Shoot-em-up-Style-Game-master\Shoot-em-up-Style-Game-master\Debug\ENGINE_1.exe
+﻿  GameScene.cpp
+C:\Users\skill_7\Desktop\git\TouHou-Project-DX9\GameScene.cpp(74,12): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\skill_7\Desktop\git\TouHou-Project-DX9\GameScene.cpp(75,12): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ENGINE_1_2010.vcxproj -> C:\Users\skill_7\Desktop\git\TouHou-Project-DX9\Debug\ENGINE_1.exe
