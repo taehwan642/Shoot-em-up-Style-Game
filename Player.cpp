@@ -14,19 +14,20 @@ Player::Player()
 
 void Player::MoveMent()
 {
-	if (DXUTIsKeyDown('W'))
+	cout << _position.x << " " << _position.y << endl;
+	if (DXUTIsKeyDown('W') && _position.y - 13 > 0)
 	{
 		_position.y += -fmovespeed;
 	}
-	if (DXUTIsKeyDown('A'))
+	if (DXUTIsKeyDown('A') && _position.x + 13 > 0)
 	{
 		_position.x += -fmovespeed;
 	}
-	if (DXUTIsKeyDown('S'))
+	if (DXUTIsKeyDown('S') && _position.y - 10 < 720) //708.5f
 	{
 		_position.y += fmovespeed;
 	}
-	if (DXUTIsKeyDown('D'))
+	if (DXUTIsKeyDown('D') && _position.x + 10 < 360)
 	{
 		_position.x += fmovespeed;
 	}

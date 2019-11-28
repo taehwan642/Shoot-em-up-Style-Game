@@ -27,6 +27,8 @@ void Bullet::AliveCheck()
 		_visible = false;
 		falivetime = 5;	
 	}
+
+
 }
 
 void Bullet::Update()
