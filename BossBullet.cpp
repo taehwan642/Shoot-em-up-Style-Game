@@ -69,4 +69,9 @@ void BossBulletMNG::SpawnBullet(vector2 vec)
 
 void BossBulletMNG::DeleteBullet()
 {
+	for (auto it : Bossbullets)
+	{
+		delete it;
+	}
+	Bossbullets.clear();
 }

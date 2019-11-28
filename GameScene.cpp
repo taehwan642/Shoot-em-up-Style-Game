@@ -88,5 +88,6 @@ void GameScene::OnExit()
 	delete BossMNG::GetInstance()->boss;
 	delete PlayerMNG::GetInstance()->player;
 	BulletMNG::GetInstance()->DeleteBullet();
+	BossBulletMNG::GetInstance()->DeleteBullet();
 	delete collider;
 }
