@@ -14,6 +14,7 @@ Bullet::Bullet()
 
 void Bullet::CollisionCheck()
 {
+
 }
 
 void Bullet::AliveCheck()

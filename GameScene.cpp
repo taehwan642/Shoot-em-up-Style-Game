@@ -38,6 +38,7 @@ void GameScene::Init()
 	Camera::GetInstance()->_CameraSize = 1.0f;
 	cameraPos = { 180,360 };
 	Camera::GetInstance()->SetPos(cameraPos);
+
 }
 
 void GameScene::Update()
@@ -85,6 +86,10 @@ void GameScene::Update()
 
 void GameScene::OnExit()
 {
+	for (int i = 0; i < 2; i++)
+	{
+		delete BackGroundScroll[i];
+	}
 	delete BossMNG::GetInstance()->boss;
 	delete PlayerMNG::GetInstance()->player;
 	BulletMNG::GetInstance()->DeleteBullet();

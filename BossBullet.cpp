@@ -30,6 +30,11 @@ void BossBullet::AliveCheck()
 		falivetime = 5;
 	}
 
+	if (_position.x > 360 || _position.x < 0 || _position.y > 720 || _position.y < 0)
+	{
+		_visible = false;
+		falivetime = 5;
+	}
 }
 
 void BossBullet::MoveMent()
