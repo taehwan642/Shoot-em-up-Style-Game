@@ -22,12 +22,14 @@ void Sprite::Create(wstring filename)
 
 void Sprite::AddRenderTarget()
 {
+	//스프라이트 클래스의 인스턴스들이 this 에 해당됨
 	Renderer::GetInstance()->AddRenderTarget(this);
 }
 
 bool Sprite::Animation(wstring path, int frame, float delay, int aninum)
 {
 	_timer += Time::deltaTime;
+	//딜레이
 	if (_timer > delay)
 	{
 		if (_nowFrame == frame)
@@ -100,15 +102,19 @@ RECT Sprite::GetRect()
 
 void Sprite::Draw()
 {
-
+	//이거 전부
 	if (!_visible)
 		return;
 	if (texture == nullptr)
 		return;
+	
+	//??
 	isUI ? Director::GetInstance()->GetSprite()->Begin(D3DXSPRITE_ALPHABLEND) : Director::GetInstance()->GetSprite()->Begin(D3DXSPRITE_ALPHABLEND | D3DXSPRITE_OBJECTSPACE);
 
 	Director::GetInstance()->GetSprite()->SetTransform(&GetMatrix());
+	//??
 	vector3 center = { _pivot.x * texture->_info.Width,_pivot.y * texture->_info.Height,0 };
+	//??인자값을 제데로 알려줘 여기에 들어가는거
 	Director::GetInstance()->GetSprite()->Draw(texture->_texture, nullptr, &center, nullptr, _color);
 	Director::GetInstance()->GetSprite()->End();
 }

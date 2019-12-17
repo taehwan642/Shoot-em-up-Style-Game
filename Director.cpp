@@ -41,6 +41,7 @@ void Director::Init()
 
 void Director::UpdateGame()
 {
+	//여기서 렌더러의 렌더는 어떻게 렌더 할 애를 구분하는지 알려줘
 	if (_currentScene)
 		_currentScene->Update();
 	Renderer::GetInstance()->Render();

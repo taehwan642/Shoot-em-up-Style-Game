@@ -23,11 +23,11 @@ void Bullet::AliveCheck()
 	if (!_visible)
 		return;
 	falivetime -= Time::deltaTime;
-	
+
 	if (falivetime < 0)
 	{
 		_visible = false;
-		falivetime = 5;	
+		falivetime = 5;
 	}
 
 	if (BossMNG::GetInstance()->boss->_visible)
@@ -37,8 +37,6 @@ void Bullet::AliveCheck()
 		{
 			ishit = true;
 			BossMNG::GetInstance()->boss->HP--;
-			cout << "SIUBAL!" << endl;
-			_position = { -1999,-1999 };
 		}
 	}
 
@@ -49,17 +47,22 @@ void Bullet::Update()
 	if (!_visible)
 		return;
 
-	if (Animation(L"", 3, 0.1f, 1))
+	if (ishit)
 	{
-		_visible = false;
-		ishit = false;
-		falivetime = 5;
+		if (Animation(L"explode", 3, 0.05f, 1))
+		{
+			_visible = false;
+			ishit = false;
+			falivetime = 5;
+		}
 	}
 	else
 	{
 		_position.y -= movespeed;
 		AliveCheck();
 	}
+
+
 }
 //Drawline? LPD3DX?
 void BulletMNG::CreateBullet()
@@ -80,6 +83,7 @@ void BulletMNG::SpawnBullet()
 			it->_position = PlayerMNG::GetInstance()->player->_position;
 			it->_visible = true;
 			it->ishit = false;
+			it->Create(L"redbullet.png");
 			return;
 		}
 	}

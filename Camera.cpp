@@ -3,6 +3,7 @@
 
 void Camera::CameraInit()
 {
+	//이거 전부 제데로
 	D3DXMatrixOrthoLH(&OM, 360, -720, 0, 1);
 	D3DXMatrixIdentity(&IM);
 	_CameraSize = 5;
@@ -10,6 +11,7 @@ void Camera::CameraInit()
 
 void Camera::Update()
 {
+	//이거 전부 제데로
 	VM = D3DXMATRIX{
 		1,0,0,0,
 		0,1,0,0,

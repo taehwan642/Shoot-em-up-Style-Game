@@ -16,6 +16,7 @@ Node::Node()
 
 D3DXMATRIX Node::GetMatrix()
 {
+	//이거 머임
 	D3DXMATRIX m;
 	D3DXMatrixIdentity(&m);
 	D3DXMatrixTransformation2D(&m, nullptr, 0, &_scale, nullptr, _rotation, &_position);

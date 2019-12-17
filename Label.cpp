@@ -3,6 +3,7 @@
 
 void Label::Create_Label(int num)
 {
+	//이거 머임 전부 알려줘
 	Delete_Label();
 	Addpos = 0;
 
