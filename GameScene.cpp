@@ -65,18 +65,18 @@ void GameScene::Update()
 	if (DXUTWasKeyPressed('O'))
 	{
 	
-		//for (int r = 60; r <= 125; r += 10)
-		//{
-		//	float x = (cos(r * (3.141592 / 180)));
-		//	float y = (sin(r * (3.141592 / 180)));
-		//	BossBulletMNG::GetInstance()->SpawnBullet({ x,y });
-		//}
-		for (int r = 0; r <= 360; r += 10)
+		for (int r = 60; r <= 125; r += 10)
 		{
 			float x = (cos(r * (3.141592 / 180)));
 			float y = (sin(r * (3.141592 / 180)));
 			BossBulletMNG::GetInstance()->SpawnBullet({ x,y });
 		}
+		/*for (int r = 0; r <= 360; r += 10)
+		{
+			float x = (cos(r * (3.141592 / 180)));
+			float y = (sin(r * (3.141592 / 180)));
+			BossBulletMNG::GetInstance()->SpawnBullet({ x,y });
+		}*/
 	}
 
 	if (DXUTWasKeyPressed('P'))

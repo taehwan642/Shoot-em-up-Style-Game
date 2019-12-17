@@ -14,7 +14,7 @@ Player::Player()
 
 void Player::MoveMent()
 {
-	cout << _position.x << " " << _position.y << endl;
+	//cout << _position.x << " " << _position.y << endl;
 	if (DXUTIsKeyDown('W') && _position.y - 13 > 0)
 	{
 		_position.y += -fmovespeed;
