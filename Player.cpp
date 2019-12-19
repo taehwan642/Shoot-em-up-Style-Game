@@ -35,6 +35,14 @@ void Player::MoveMent()
 
 void Player::Update()
 {
+	if (DXUTIsKeyDown(VK_LCONTROL))
+	{
+		fmovespeed = 2.5f;
+	}
+	else
+	{
+		fmovespeed = 6.5f;
+	}
 	MoveMent();
 }
 

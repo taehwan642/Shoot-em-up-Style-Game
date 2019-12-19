@@ -5,7 +5,7 @@ Bullet::Bullet()
 {
 	Create(L"redbullet.png");
 	isUI = false;
-	movespeed = 6.5f;
+	movespeed = 10.0f;
 	falivetime = 5;
 	_visible = false;
 	ishit = false;

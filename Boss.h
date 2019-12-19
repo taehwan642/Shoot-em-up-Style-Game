@@ -1,5 +1,6 @@
 #pragma once
 #include "Sprite.h"
+#include "BossBullet.h"
 class Boss :
 	public Sprite
 {
@@ -7,9 +8,12 @@ public:
 	Boss();
 	float fTime;
 	float fPos;
-	int HP;
+	float HP;
+	float timer;
+
 	void MoveMent();
 	void BossMoveMent(float position, float cycle, float radius);
+	void PatternMNG(int patternnum, float shootpatterndelay);
 	void Pattern1();
 	void Update() override;
 };

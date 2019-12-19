@@ -17,6 +17,7 @@ class GameScene :
 public:
 	Sprite* collider;
 	Sprite* BackGroundScroll[2];
+	Sprite* Blood;
 	vector2 cameraPos;
 	vector2 mousepointer;
 	vector2 bossbulletdir;

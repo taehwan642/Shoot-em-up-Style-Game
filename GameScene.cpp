@@ -38,12 +38,18 @@ void GameScene::Init()
 	Camera::GetInstance()->_CameraSize = 1.0f;
 	cameraPos = { 180,360 };
 	Camera::GetInstance()->SetPos(cameraPos);
+#pragma region UIinit
+	Blood = new Sprite();
+	Blood->Create(L"Blood.png");
+	Blood->_position = { 180,700 };
+	Blood->AddRenderTarget();
+#pragma endregion
 
 }
 
 void GameScene::Update()
 {
-
+	Blood->_scale = { (BossMNG::GetInstance()->boss->HP / 7),1 };
 	for (int i = 0; i < 2; i++)
 	{
 		if (BackGroundScroll[i]->_position.y > 710)
@@ -60,23 +66,6 @@ void GameScene::Update()
 	if (DXUTWasKeyPressed(VK_SPACE))
 	{
 		BulletMNG::GetInstance()->SpawnBullet();
-	}
-
-	if (DXUTWasKeyPressed('O'))
-	{
-	
-		for (int r = 60; r <= 125; r += 10)
-		{
-			float x = (cos(r * (3.141592 / 180)));
-			float y = (sin(r * (3.141592 / 180)));
-			BossBulletMNG::GetInstance()->SpawnBullet({ x,y });
-		}
-		/*for (int r = 0; r <= 360; r += 10)
-		{
-			float x = (cos(r * (3.141592 / 180)));
-			float y = (sin(r * (3.141592 / 180)));
-			BossBulletMNG::GetInstance()->SpawnBullet({ x,y });
-		}*/
 	}
 
 	if (DXUTWasKeyPressed('P'))
