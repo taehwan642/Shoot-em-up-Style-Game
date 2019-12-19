@@ -46,11 +46,11 @@ void GameScene::Update()
 
 	for (int i = 0; i < 2; i++)
 	{
-		if (BackGroundScroll[i]->_position.y > 714)
+		if (BackGroundScroll[i]->_position.y > 710)
 		{
 			BackGroundScroll[i]->_position.y = -720;
 		}
-		BackGroundScroll[i]->_position.y += 5.5f;
+		BackGroundScroll[i]->_position.y += 5.0f;
 	}
 
 	collider->_position = PlayerPos;
