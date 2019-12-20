@@ -9,7 +9,11 @@ Boss::Boss()
 	fPos = 0;
 	HP = 100;
 	timer = 0;
-	pattern2rotation = 0;
+	pattern21 = 0;
+	pattern22 = 90;
+	pattern23 = 180;
+	pattern24 = 270;
+
 	_scale = { 3,3 };
 	_position.x = 180;
 	_position.y = 60;
@@ -44,7 +48,12 @@ void Boss::PatternMNG(int patternnum, float shootpatterndelay)
 			Pattern1();
 			break;
 		case 2:
-			Pattern2();
+			Pattern2(pattern21);
+			Pattern2(pattern22);
+			Pattern2(pattern23);
+			Pattern2(pattern24);
+
+			break;
 		default:
 			break;
 		}
@@ -74,23 +83,24 @@ void Boss::Pattern1()
 	}*/
 
 }
-void Boss::Pattern2()
+void Boss::Pattern2(/*startrotation nees to be 0 ~ 360*/float& startrotation)
 {
-	if (pattern2rotation > 360)
-		pattern2rotation = 0;
+	cout <<"start : " <<startrotation << endl;
 
-	cout << pattern2rotation << endl;
+	if (startrotation > 360)
+		startrotation = 0;
+
 
 	for (int r = 0; r < 360; r += 10)
 	{
-		if (pattern2rotation == r)
+		if (startrotation == r)
 		{
 			float x = (cos(r * (3.141592 / 180)));
 			float y = (sin(r * (3.141592 / 180)));
 			BossBulletMNG::GetInstance()->SpawnBullet({ x,y });
 		}
 	}
-	pattern2rotation += 10;
+	startrotation += 10;
 }
 
 void Boss::Update()
@@ -100,7 +110,7 @@ void Boss::Update()
 
 	if (HP > 70)
 	{
-		PatternMNG(2, 0.01f);
+		PatternMNG(2, 0.1f);
 	}
 	else if (HP > 40)
 	{
