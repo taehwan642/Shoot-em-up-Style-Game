@@ -80,7 +80,7 @@ int main()
     DXUTInit( true, true ); // Parse the command line and show msgboxes
     DXUTSetHotkeyHandling( true, true, true );  // handle the default hotkeys
     DXUTSetCursorSettings( true, true ); // Show the cursor and clip it when in full screen
-    DXUTCreateWindow( L"ENGINE_1" );
+    DXUTCreateWindow( L"Dodge" );
     DXUTCreateDevice( true, 360, 720 );
 
 	Director::GetInstance()->ChangeScene(new MainScene);

@@ -240,5 +240,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="dxut\optional\icon1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

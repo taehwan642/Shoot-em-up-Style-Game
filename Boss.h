@@ -10,11 +10,13 @@ public:
 	float fPos;
 	float HP;
 	float timer;
+	float pattern2rotation;
 
 	void MoveMent();
 	void BossMoveMent(float position, float cycle, float radius);
 	void PatternMNG(int patternnum, float shootpatterndelay);
 	void Pattern1();
+	void Pattern2();
 	void Update() override;
 };
 

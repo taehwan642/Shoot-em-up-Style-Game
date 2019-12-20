@@ -442,6 +442,7 @@
     <ClCompile Include="ENGINE_1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="dxut\optional\icon1.ico" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h" />
