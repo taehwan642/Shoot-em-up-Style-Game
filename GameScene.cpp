@@ -21,10 +21,10 @@ void GameScene::Init()
 #pragma endregion
 #pragma region MNGinit
 	Camera::GetInstance()->CameraInit();
-	BossMNG::GetInstance()->CreateBoss();
 	PlayerMNG::GetInstance()->CreatePlayer();
 	BulletMNG::GetInstance()->CreateBullet();
 	BossBulletMNG::GetInstance()->CreateBullet();
+	BossMNG::GetInstance()->CreateBoss();
 #pragma endregion
 	collider = new Sprite();
 	collider->Create(L"collider.png");
@@ -70,6 +70,7 @@ void GameScene::Update()
 
 	if (DXUTWasKeyPressed('P'))
 		Director::GetInstance()->ChangeScene(new MainScene);
+
 	Camera::GetInstance()->Update();
 }
 

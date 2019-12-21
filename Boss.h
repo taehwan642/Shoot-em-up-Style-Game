@@ -19,7 +19,7 @@ public:
 	void MoveMent();
 	void BossMoveMent(float position, float cycle, float radius);
 	void PatternMNG(int patternnum, float shootpatterndelay);
-	void Pattern1();
+	void Pattern1(int num);
 	void Pattern2(/*startrotation nees to be 0 ~ 360*/float& startrotation);
 	void Update() override;
 };
