@@ -55,7 +55,7 @@ void Boss::PatternMNG(int patternnum, float shootpatterndelay)
 			break;
 		case 3:
 			Pattern1(2);
-			
+
 			break;
 		default:
 			break;
@@ -114,24 +114,27 @@ void Boss::Update()
 {
 
 
+	if (_visible)
+	{
+		if (HP > 70)
+		{
+			PatternMNG(2, 0.1f);
+		}
+		else if (HP > 40)
+		{
+			PatternMNG(1, 0.3f);
+		}
+		else if (HP > 20)
+		{
+			PatternMNG(3, 0.3f);
+		}
+		else
+		{
+			PatternMNG(1, 0.3f);
+			PatternMNG(2, 0.1f);
+		}
+	}
 
-	if (HP > 70)
-	{
-		PatternMNG(2, 0.1f);
-	}
-	else if (HP > 40)
-	{
-		PatternMNG(1, 0.3f);
-	}
-	else if (HP > 20)
-	{
-		PatternMNG(3, 0.3f);
-	}
-	else
-	{
-		PatternMNG(1, 0.3f);
-		PatternMNG(2, 0.1f);
-	}
 
 
 	BossMoveMent(0, 1.0f, 0.8f);

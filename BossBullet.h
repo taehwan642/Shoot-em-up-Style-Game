@@ -1,6 +1,7 @@
 #pragma once
 #include "Sprite.h"
 #include "Boss.h"
+#include "Player.h"
 class BossBullet :
 	public Sprite
 {

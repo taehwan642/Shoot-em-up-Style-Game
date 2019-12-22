@@ -46,6 +46,16 @@ void BossBullet::Update()
 {
 	AliveCheck();
 	MoveMent();
+	if (_visible)
+	{
+		RECT rct;
+		if (IntersectRect(&rct, &PlayerMNG::GetInstance()->player->GetRect(), &GetRect()))
+		{
+			PlayerMNG::GetInstance()->player->HP--;
+			cout << "3번연속꺼지는 갓컴퓨터 작업오늘그만해야지 " << PlayerMNG::GetInstance()->player->HP << endl;
+			_visible = false;
+		}
+	}
 }
 
 void BossBulletMNG::CreateBullet()

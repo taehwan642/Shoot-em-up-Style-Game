@@ -44,11 +44,12 @@ void GameScene::Init()
 	Blood->_position = { 180,700 };
 	Blood->AddRenderTarget();
 #pragma endregion
-
+	shootingtimer = 0;
 }
 
 void GameScene::Update()
 {
+	shootingtimer += Time::deltaTime;
 	Blood->_scale = { (BossMNG::GetInstance()->boss->HP / 7),1 };
 	for (int i = 0; i < 2; i++)
 	{
@@ -63,9 +64,13 @@ void GameScene::Update()
 
 
 
-	if (DXUTWasKeyPressed(VK_SPACE))
+	if (DXUTIsKeyDown(VK_SPACE))
 	{
-		BulletMNG::GetInstance()->SpawnBullet();
+		if (PlayerMNG::GetInstance()->player->freshootingtime < shootingtimer)
+		{
+			BulletMNG::GetInstance()->SpawnBullet();
+			shootingtimer = 0;
+		}
 	}
 
 	if (DXUTWasKeyPressed('P'))

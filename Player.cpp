@@ -5,6 +5,8 @@ Player::Player()
 {
 	Create(L"redplane.png");
 	fmovespeed = 6.5f;
+	freshootingtime = 0.3f;
+	HP = 3;
 	isUI = false;
 	_scale = { 0.7f,0.7f };
 	_position.x = 180;

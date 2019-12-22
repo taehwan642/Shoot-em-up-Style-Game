@@ -6,6 +6,8 @@ class Player :
 public:
 	Player();
 	float fmovespeed;
+	float freshootingtime;
+	float HP;
 	void MoveMent();
 	void Update() override;
 };

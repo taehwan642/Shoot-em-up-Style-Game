@@ -21,6 +21,7 @@ public:
 	vector2 cameraPos;
 	vector2 mousepointer;
 	vector2 bossbulletdir;
+	float shootingtimer;
 	void Init() override;
 	void Update() override;
 	void OnExit() override;
