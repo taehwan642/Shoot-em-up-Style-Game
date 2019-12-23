@@ -8,14 +8,10 @@ BossBullet::BossBullet()
 	speed = 300.0f;
 	movespeed = 6.5f;
 	falivetime = 5;
+	ishit = false;
 	_visible = false;
 	_scale = { 0.7f,0.7f };
 	_position = { 900,900 };
-}
-
-void BossBullet::CollisionCheck()
-{
-
 }
 
 void BossBullet::AliveCheck()
@@ -23,6 +19,16 @@ void BossBullet::AliveCheck()
 	if (!_visible)
 		return;
 	falivetime -= Time::deltaTime;
+
+	if (ishit)
+	{
+		if (Animation(L"explode", 3, 0.05f, 1))
+		{
+			ishit = false;
+			_visible = false;
+			falivetime = 5;
+		}
+	}
 
 	if (falivetime < 0)
 	{
@@ -52,8 +58,8 @@ void BossBullet::Update()
 		if (IntersectRect(&rct, &PlayerMNG::GetInstance()->player->GetRect(), &GetRect()))
 		{
 			PlayerMNG::GetInstance()->player->HP--;
-			cout << "3번연속꺼지는 갓컴퓨터 작업오늘그만해야지 " << PlayerMNG::GetInstance()->player->HP << endl;
-			_visible = false;
+			cout << "SIBAL " << PlayerMNG::GetInstance()->player->HP << endl;
+			ishit = true;
 		}
 	}
 }

@@ -10,8 +10,8 @@ public:
 	float speed;
 	float movespeed;
 	float falivetime;
+	bool ishit;
 	vector2 _v;
-	void CollisionCheck();
 	void AliveCheck();
 	void MoveMent();
 	void Update() override;

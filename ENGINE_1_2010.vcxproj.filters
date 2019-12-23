@@ -72,6 +72,9 @@
     <Filter Include="GAME\Characters\BossBullet">
       <UniqueIdentifier>{3a4932b4-f7a7-466d-b760-1932b8b1c968}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GAME\Characters\Monsters">
+      <UniqueIdentifier>{e79166a7-a2c6-4c25-9e17-f1c980c91fff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="DXUT\Optional\directx.ico">
@@ -182,6 +185,15 @@
     <ClCompile Include="BossBullet.cpp">
       <Filter>GAME\Characters\BossBullet</Filter>
     </ClCompile>
+    <ClCompile Include="Monsters.cpp">
+      <Filter>GAME\Characters\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalMonster.cpp">
+      <Filter>GAME\Characters\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="CrazyMonster.cpp">
+      <Filter>GAME\Characters\Monsters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -237,6 +249,15 @@
     </ClInclude>
     <ClInclude Include="BossBullet.h">
       <Filter>GAME\Characters\BossBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Monsters.h">
+      <Filter>GAME\Characters\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalMonster.h">
+      <Filter>GAME\Characters\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="CrazyMonster.h">
+      <Filter>GAME\Characters\Monsters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
