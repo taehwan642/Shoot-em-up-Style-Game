@@ -5,7 +5,7 @@ BossBullet::BossBullet()
 {
 	Create(L"graybullet.png");
 	isUI = false;
-	speed = 300.0f;
+	speed = 3.0f;
 	movespeed = 6.5f;
 	falivetime = 5;
 	ishit = false;
@@ -43,9 +43,38 @@ void BossBullet::AliveCheck()
 	}
 }
 
+void BossBullet::Pattern1()
+{
+	vector2 vec;
+	
+		float x = (cos(r * (3.141592 / 180)));
+		float y = (sin(r * (3.141592 / 180)));
+		vec.x = x;
+		vec.y = y;
+	
+	_position += vec * speed;
+}
+
+void BossBullet::Pattern2()
+{
+
+}
+
+void BossBullet::Pattern3()
+{
+
+}
+
 void BossBullet::MoveMent()
 {
-	_position += {speed * Time::deltaTime * _v};
+	switch (patternnumber)
+	{
+	case 1:
+		Pattern1();
+		break;
+	default:
+		break;
+	}
 }
 
 void BossBullet::Update()
@@ -64,6 +93,7 @@ void BossBullet::Update()
 	}
 }
 
+
 void BossBulletMNG::CreateBullet()
 {
 	for (int i = 0; i < 1000; i++)
@@ -73,7 +103,7 @@ void BossBulletMNG::CreateBullet()
 	}
 }
 
-void BossBulletMNG::SpawnBullet(vector2 vec)
+void BossBulletMNG::SpawnBullet(int PatternNum, float rotation)
 {
 	for (auto it : Bossbullets)
 	{
@@ -81,7 +111,8 @@ void BossBulletMNG::SpawnBullet(vector2 vec)
 		{
 			it->_position = BossMNG::GetInstance()->boss->_position;
 			it->Create(L"graybullet.png");
-			it->_v = vec;
+			it->patternnumber = PatternNum;
+			it->r = rotation;
 			it->_visible = true;
 			return;
 		}

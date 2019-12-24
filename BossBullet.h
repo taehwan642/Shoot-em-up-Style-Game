@@ -10,11 +10,15 @@ public:
 	float speed;
 	float movespeed;
 	float falivetime;
+	float r;
+	int patternnumber;
 	bool ishit;
-	vector2 _v;
 	void AliveCheck();
 	void MoveMent();
 	void Update() override;
+	void Pattern1();
+	void Pattern2();
+	void Pattern3();
 };
 
 class BossBulletMNG : public Singleton<BossBulletMNG>
@@ -22,6 +26,6 @@ class BossBulletMNG : public Singleton<BossBulletMNG>
 public:
 	vector<BossBullet*> Bossbullets;
 	void CreateBullet();
-	void SpawnBullet(vector2 vec);
+	void SpawnBullet(int PatternNum, float rotation);
 	void DeleteBullet();
 };
