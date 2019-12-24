@@ -26,9 +26,7 @@ void GameScene::Init()
 	BossBulletMNG::GetInstance()->CreateBullet();
 	BossMNG::GetInstance()->CreateBoss();
 #pragma endregion
-	collider = new Sprite();
-	collider->Create(L"collider.png");
-	collider->isUI = false;
+
 	cout << "Game" << endl;
 
 	PlayerPos = { 0,0 };
@@ -60,7 +58,6 @@ void GameScene::Update()
 		BackGroundScroll[i]->_position.y += 5.0f;
 	}
 
-	collider->_position = PlayerPos;
 
 
 
@@ -87,7 +84,7 @@ void GameScene::OnExit()
 	}
 	delete BossMNG::GetInstance()->boss;
 	delete PlayerMNG::GetInstance()->player;
+	delete PlayerMNG::GetInstance()->player->collider;
 	BulletMNG::GetInstance()->DeleteBullet();
 	BossBulletMNG::GetInstance()->DeleteBullet();
-	delete collider;
 }

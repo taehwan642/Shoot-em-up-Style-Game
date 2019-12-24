@@ -55,7 +55,7 @@ void BossBullet::Update()
 	if (_visible)
 	{
 		RECT rct;
-		if (IntersectRect(&rct, &PlayerMNG::GetInstance()->player->GetRect(), &GetRect()))
+		if (IntersectRect(&rct, &PlayerMNG::GetInstance()->player->collider->GetRect(), &GetRect()))
 		{
 			PlayerMNG::GetInstance()->player->HP--;
 			cout << "SIBAL " << PlayerMNG::GetInstance()->player->HP << endl;
@@ -80,6 +80,7 @@ void BossBulletMNG::SpawnBullet(vector2 vec)
 		if (!it->_visible)
 		{
 			it->_position = BossMNG::GetInstance()->boss->_position;
+			it->Create(L"graybullet.png");
 			it->_v = vec;
 			it->_visible = true;
 			return;

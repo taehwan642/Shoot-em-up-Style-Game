@@ -15,7 +15,6 @@ class GameScene :
 	public Scene
 {
 public:
-	Sprite* collider;
 	Sprite* BackGroundScroll[2];
 	Sprite* Blood;
 	vector2 cameraPos;

@@ -8,6 +8,7 @@ public:
 	float fmovespeed;
 	float freshootingtime;
 	float HP;
+	Sprite* collider;
 	void MoveMent();
 	void Update() override;
 };

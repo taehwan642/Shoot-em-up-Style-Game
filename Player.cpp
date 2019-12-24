@@ -12,6 +12,10 @@ Player::Player()
 	_position.x = 180;
 	_position.y = 500;
 	_visible = true;
+	collider = new Sprite();
+	collider->Create(L"collider.png");
+	collider->isUI = false;
+	collider->_scale = { 0.2f,0.2f };
 }
 
 void Player::MoveMent()
@@ -46,6 +50,7 @@ void Player::Update()
 		fmovespeed = 6.5f;
 	}
 	MoveMent();
+	collider->_position = _position;
 }
 
 void PlayerMNG::CreatePlayer()
