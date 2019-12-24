@@ -48,6 +48,9 @@ void Boss::PatternMNG(int patternnum, float shootpatterndelay)
 			for (int r = 60; r <= 125; r += 10)
 			{
 				BossBulletMNG::GetInstance()->SpawnBullet(1, r);
+				cout << "시발왜이리많이나와" << endl;
+
+
 			}
 			break;
 		case 2:
@@ -136,7 +139,7 @@ void Boss::Update()
 			PatternMNG(1, 0.3f);
 			PatternMNG(2, 0.1f);
 		}*/
-		PatternMNG(1, 0.3f);
+		PatternMNG(1, 1.0f);
 	}
 
 
