@@ -56,7 +56,13 @@ void BossBullet::Pattern1()
 
 void BossBullet::Pattern2()
 {
-	//ttstlqkfㅅ비ㅏㄹ시발오류나지말라고요?오류나지마세요제발ㄹ요ㅎㅇ혀영제발형제발 오류나지맛요
+	vector2 vec;
+	float x = (cos(r * (3.141592 / 180)));
+	float y = (sin(r * (3.141592 / 180)));
+	vec.x = x;
+	vec.y = y;
+
+	_position += vec * speed;
 }
 
 void BossBullet::Pattern3()
@@ -69,6 +75,9 @@ void BossBullet::MoveMent()
 	switch (patternnumber)
 	{
 	case 1:
+		Pattern1();
+		break;
+	case 2:
 		Pattern1();
 		break;
 	default:
