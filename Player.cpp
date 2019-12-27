@@ -25,11 +25,11 @@ void Player::MoveMent()
 	{
 		_position.y += -fmovespeed;
 	}
-	if (DXUTIsKeyDown('A') && _position.x + 13 > 0)
+	if (DXUTIsKeyDown('A') && _position.x - 10 > 0)
 	{
 		_position.x += -fmovespeed;
 	}
-	if (DXUTIsKeyDown('S') && _position.y - 10 < 720) //708.5f
+	if (DXUTIsKeyDown('S') && _position.y + 13 < 720) //708.5f
 	{
 		_position.y += fmovespeed;
 	}

@@ -105,6 +105,9 @@ void Boss::PatternMNG(int patternnum, float shootpatterndelay)
 			Pattern2(pattern23);
 			Pattern2(pattern24);
 			break;
+		case 4:
+			BossBulletMNG::GetInstance()->SpawnBullet(3, 0);
+			break;
 		default:
 			break;
 		}
@@ -136,7 +139,7 @@ void Boss::Update()
 			PatternMNG(1, 0.3f);
 			PatternMNG(2, 0.1f);
 		}*/
-		PatternMNG(3, 0.03f);
+		PatternMNG(4, 0.3f);
 	}
 
 

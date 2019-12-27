@@ -67,7 +67,7 @@ bool Sprite::Goto(Sprite* target, float Speed)
 {
 	v = target->_position - _position;
 	float size = sqrt(v.x * v.x + v.y * v.y);
-	if (size < 100)
+	if (size < 10)
 		return true;
 	v.x /= size;
 	v.y /= size;

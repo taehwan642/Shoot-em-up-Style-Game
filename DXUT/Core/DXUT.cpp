@@ -6485,3 +6485,4 @@ void WINAPI DXUTSetIsInGammaCorrectMode( bool bGammaCorrect )
     GetDXUTState().SetIsInGammaCorrectMode( bGammaCorrect );
 }
 
+

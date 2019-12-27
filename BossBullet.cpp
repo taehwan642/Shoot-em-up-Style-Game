@@ -32,8 +32,12 @@ void BossBullet::AliveCheck()
 
 	if (falivetime < 0)
 	{
-		_visible = false;
-		falivetime = 5;
+		if (Animation(L"explode", 3, 0.05f, 1))
+		{
+			ishit = false;
+			_visible = false;
+			falivetime = 5;
+		}
 	}
 
 	if (_position.x > 360 || _position.x < 0 || _position.y > 720 || _position.y < 0)
@@ -56,18 +60,17 @@ void BossBullet::Pattern1()
 
 void BossBullet::Pattern2()
 {
-	vector2 vec;
-	float x = (cos(r * (3.141592 / 180)));
-	float y = (sin(r * (3.141592 / 180)));
-	vec.x = x;
-	vec.y = y;
-
-	_position += vec * speed;
+	vector2 vec = PlayerMNG::GetInstance()->player->_position;
+	cout << vec.x << " " << vec.y << endl;
+	_position += vec;
+	
 }
 
 void BossBullet::Pattern3()
 {
-
+	Goto(PlayerMNG::GetInstance()->player, speed * 30);
+	_rotation = 0;
+	
 }
 
 void BossBullet::MoveMent()
@@ -79,6 +82,9 @@ void BossBullet::MoveMent()
 		break;
 	case 2:
 		Pattern1();
+		break;
+	case 3:
+		Pattern3();
 		break;
 	default:
 		break;
