@@ -9,6 +9,8 @@ BossBullet::BossBullet()
 	movespeed = 6.5f;
 	falivetime = 5;
 	ishit = false;
+	targeted = false;
+	v = { 0,0 };
 	_visible = false;
 	_scale = { 0.7f,0.7f };
 	_position = { 900,900 };
@@ -22,6 +24,8 @@ void BossBullet::AliveCheck()
 
 	if (ishit)
 	{
+		_color.g = 255;
+
 		if (Animation(L"explode", 3, 0.05f, 1))
 		{
 			ishit = false;
@@ -32,6 +36,8 @@ void BossBullet::AliveCheck()
 
 	if (falivetime < 0)
 	{
+		_color.g = 255;
+
 		if (Animation(L"explode", 3, 0.05f, 1))
 		{
 			ishit = false;
@@ -63,16 +69,41 @@ void BossBullet::Pattern2()
 	vector2 vec = PlayerMNG::GetInstance()->player->_position;
 	cout << vec.x << " " << vec.y << endl;
 	_position += vec;
-	
 }
 
 void BossBullet::Pattern3()
 {
-	Goto(PlayerMNG::GetInstance()->player, speed * 30);
-	_rotation = 0;
-	
-}
+	//if (ishit && !_visible)
+	//	return;
 
+	//if (Goto(PlayerMNG::GetInstance()->player, speed * 80) && !ishit && _visible)
+	//{
+	//	_color.g = 255;
+	//	ishit = true;
+	//	PlayerMNG::GetInstance()->player->HP--;
+	//	cout << "UDO " << PlayerMNG::GetInstance()->player->HP << endl;
+	//}
+	//_rotation = 0;
+	//_color.g = 0;
+	//cout << "?" << endl;
+	
+	if (!targeted)
+	{
+		
+		v = PlayerMNG::GetInstance()->player->_position - _position;
+		float size = sqrt(v.x * v.x + v.y * v.y);
+		v.x /= size;
+		v.y /= size;
+		cout << v.x << " " << v.y << endl;
+		_color.g = 0;
+		targeted = true;
+	}
+	float size = sqrt(v.x * v.x + v.y * v.y);
+	v.x /= size;
+	v.y /= size;
+	_position += v * speed;
+
+}
 void BossBullet::MoveMent()
 {
 	switch (patternnumber)
@@ -123,8 +154,10 @@ void BossBulletMNG::SpawnBullet(int PatternNum, float rotation)
 	{
 		if (!it->_visible)
 		{
-			it->_position = BossMNG::GetInstance()->boss->_position;
 			it->Create(L"graybullet.png");
+			it->_color.g = 255;
+			it->targeted = false;
+			it->_position = BossMNG::GetInstance()->boss->_position;
 			it->patternnumber = PatternNum;
 			it->r = rotation;
 			it->_visible = true;

@@ -83,8 +83,9 @@ void GameScene::OnExit()
 		delete BackGroundScroll[i];
 	}
 	delete BossMNG::GetInstance()->boss;
-	delete PlayerMNG::GetInstance()->player;
 	delete PlayerMNG::GetInstance()->player->collider;
+	delete PlayerMNG::GetInstance()->player;
 	BulletMNG::GetInstance()->DeleteBullet();
 	BossBulletMNG::GetInstance()->DeleteBullet();
+	delete Blood;
 }

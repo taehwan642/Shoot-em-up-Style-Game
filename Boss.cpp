@@ -13,7 +13,7 @@ Boss::Boss()
 	pattern22 = 90;
 	pattern23 = 180;
 	pattern24 = 270;
-
+	udotime = 0;
 	_scale = { 3,3 };
 	_position.x = 180;
 	_position.y = 60;
@@ -107,6 +107,7 @@ void Boss::PatternMNG(int patternnum, float shootpatterndelay)
 			break;
 		case 4:
 			BossBulletMNG::GetInstance()->SpawnBullet(3, 0);
+			cout << "?" << endl;
 			break;
 		default:
 			break;
@@ -118,28 +119,32 @@ void Boss::PatternMNG(int patternnum, float shootpatterndelay)
 
 void Boss::Update()
 {
-
+	udotime += Time::deltaTime;
 
 	if (_visible)
 	{
-		/*if (HP > 70)
+		if (HP > 70)
 		{
-			PatternMNG(2, 0.1f);
+			if (udotime > 0.3f)
+			{
+				BossBulletMNG::GetInstance()->SpawnBullet(3, 0);
+				udotime = 0;
+			}
+			//PatternMNG(1, 0.5f);
 		}
 		else if (HP > 40)
 		{
-			PatternMNG(1, 0.3f);
-		}
-		else if (HP > 20)
-		{
-			PatternMNG(3, 0.3f);
+			PatternMNG(3, 0.04f);
+			PatternMNG(4, 1.0f);
+
 		}
 		else
 		{
-			PatternMNG(1, 0.3f);
-			PatternMNG(2, 0.1f);
-		}*/
-		PatternMNG(4, 0.3f);
+			PatternMNG(2, 0.7f);
+			PatternMNG(4, 1.0f);
+		}
+		
+		//PatternMNG(4, 0.3f);
 	}
 
 

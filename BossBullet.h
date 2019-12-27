@@ -13,6 +13,8 @@ public:
 	float r;
 	int patternnumber;
 	bool ishit;
+	bool targeted;
+
 	void AliveCheck();
 	void MoveMent();
 	void Update() override;
