@@ -30,6 +30,12 @@ void Bullet::AliveCheck()
 		falivetime = 5;
 	}
 
+	if (_position.y < 0)
+	{
+		_visible = false;
+		falivetime = 5;
+	}
+
 	if (BossMNG::GetInstance()->boss->_visible)
 	{
 		RECT boss;
@@ -37,6 +43,7 @@ void Bullet::AliveCheck()
 		{
 			ishit = true;
 			BossMNG::GetInstance()->boss->HP--;
+			cout << "?" << endl;
 		}
 	}
 

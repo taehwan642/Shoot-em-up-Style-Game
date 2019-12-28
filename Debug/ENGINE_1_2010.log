@@ -1,2 +1,3 @@
-﻿  GameScene.cpp
+﻿  Monsters.cpp
+C:\Users\taehw\Documents\GitHub\Shoot-em-up-Style-Game\Monsters.cpp(55): warning C4702: 접근할 수 없는 코드입니다.
   ENGINE_1_2010.vcxproj -> C:\Users\taehw\Documents\GitHub\Shoot-em-up-Style-Game\Debug\ENGINE_1.exe

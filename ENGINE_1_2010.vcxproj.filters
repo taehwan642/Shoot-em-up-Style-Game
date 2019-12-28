@@ -75,6 +75,9 @@
     <Filter Include="GAME\Characters\Monsters">
       <UniqueIdentifier>{e79166a7-a2c6-4c25-9e17-f1c980c91fff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GAME\Characters\Items">
+      <UniqueIdentifier>{1d2acca8-aeb2-4c5f-bf24-47603eb97fd4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="DXUT\Optional\directx.ico">
@@ -188,11 +191,8 @@
     <ClCompile Include="Monsters.cpp">
       <Filter>GAME\Characters\Monsters</Filter>
     </ClCompile>
-    <ClCompile Include="NormalMonster.cpp">
-      <Filter>GAME\Characters\Monsters</Filter>
-    </ClCompile>
-    <ClCompile Include="CrazyMonster.cpp">
-      <Filter>GAME\Characters\Monsters</Filter>
+    <ClCompile Include="Items.cpp">
+      <Filter>GAME\Characters\Items</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -253,11 +253,8 @@
     <ClInclude Include="Monsters.h">
       <Filter>GAME\Characters\Monsters</Filter>
     </ClInclude>
-    <ClInclude Include="NormalMonster.h">
-      <Filter>GAME\Characters\Monsters</Filter>
-    </ClInclude>
-    <ClInclude Include="CrazyMonster.h">
-      <Filter>GAME\Characters\Monsters</Filter>
+    <ClInclude Include="Items.h">
+      <Filter>GAME\Characters\Items</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

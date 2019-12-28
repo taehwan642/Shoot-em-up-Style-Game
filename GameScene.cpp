@@ -24,15 +24,13 @@ void GameScene::Init()
 	PlayerMNG::GetInstance()->CreatePlayer();
 	BulletMNG::GetInstance()->CreateBullet();
 	BossBulletMNG::GetInstance()->CreateBullet();
+	MonstersMNG::GetInstance()->CreateMonster();
 	BossMNG::GetInstance()->CreateBoss();
 #pragma endregion
 
 	cout << "Game" << endl;
 
-	PlayerPos = { 0,0 };
 
-	mousepointer = { 0,0 };
-	bossbulletdir = {0,1};
 	Camera::GetInstance()->_CameraSize = 1.0f;
 	cameraPos = { 180,360 };
 	Camera::GetInstance()->SetPos(cameraPos);
@@ -40,6 +38,7 @@ void GameScene::Init()
 	Blood = new Sprite();
 	Blood->Create(L"Blood.png");
 	Blood->_position = { 180,700 };
+	Blood->_visible = false;
 	Blood->AddRenderTarget();
 	for (int i = 0; i < 3; i++)
 	{
@@ -53,6 +52,9 @@ void GameScene::Init()
 
 void GameScene::Update()
 {
+	if (BossMNG::GetInstance()->boss->breadyforaction)
+		Blood->_visible = true;
+
 	shootingtimer += Time::deltaTime;
 	Blood->_scale = { (BossMNG::GetInstance()->boss->HP / 7),1 };
 	for (int i = 0; i < 2; i++)
@@ -63,10 +65,13 @@ void GameScene::Update()
 		}
 		BackGroundScroll[i]->_position.y += 5.0f;
 	}
-	//330 30
-	cout << PlayerMNG::GetInstance()->player->_position.x << " " << PlayerMNG::GetInstance()->player->_position.y << endl;
+
 	if (DXUTWasKeyPressed('R'))
 		BossMNG::GetInstance()->boss->breadyforaction = true;
+
+
+	if (DXUTWasKeyPressed('M'))
+		MonstersMNG::GetInstance()->SpawnMonster(1);
 
 	if (DXUTIsKeyDown(VK_SPACE))
 	{
@@ -92,7 +97,12 @@ void GameScene::OnExit()
 	delete BossMNG::GetInstance()->boss;
 	delete PlayerMNG::GetInstance()->player->collider;
 	delete PlayerMNG::GetInstance()->player;
+	for (int i = 0; i < 3; i++)
+	{
+		delete PlayerHP[i];
+	}
 	BulletMNG::GetInstance()->DeleteBullet();
 	BossBulletMNG::GetInstance()->DeleteBullet();
+	MonstersMNG::GetInstance()->DeleteMonster();
 	delete Blood;
 }
