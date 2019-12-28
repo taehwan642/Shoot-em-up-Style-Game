@@ -16,7 +16,9 @@ Boss::Boss()
 	udotime = 0;
 	_scale = { 3,3 };
 	_position.x = 180;
-	_position.y = 60;
+	_position.y = -100;
+	breadyforaction = false;
+	//_position.y = 60;
 	_visible = true;
 	isUI = false;
 }
@@ -120,37 +122,39 @@ void Boss::PatternMNG(int patternnum, float shootpatterndelay)
 void Boss::Update()
 {
 	udotime += Time::deltaTime;
-
-	if (_visible)
+	//레디포액션인데, 포지션이 60이하면 계속 내려가고 다 내려갔으면 싸우기 시작함
+	if (breadyforaction)
 	{
-		if (HP > 70)
-		{
-			if (udotime > 0.3f)
-			{
-				BossBulletMNG::GetInstance()->SpawnBullet(3, 0);
-				udotime = 0;
-			}
-			//PatternMNG(1, 0.5f);
-		}
-		else if (HP > 40)
-		{
-			PatternMNG(3, 0.04f);
-			PatternMNG(4, 1.0f);
+		if (_position.y < 60)
+			_position.y++;
 
-		}
 		else
 		{
-			PatternMNG(2, 0.7f);
-			PatternMNG(4, 1.0f);
+			if (_visible)
+			{
+				if (HP > 70)
+				{
+
+					PatternMNG(1, 0.5f);
+				}
+				else if (HP > 40)
+				{
+					PatternMNG(2, 0.7f);
+				}
+				else
+				{
+					PatternMNG(3, 0.04f);
+					if (udotime > 2.0f)
+					{
+						BossBulletMNG::GetInstance()->SpawnBullet(3, 0);
+						udotime = 0;
+					}
+				}
+			}
 		}
-		
-		//PatternMNG(4, 0.3f);
 	}
-
-
-
+	
 	BossMoveMent(0, 1.0f, 0.8f);
-
 	if (HP <= 0)
 		_visible = false;
 

@@ -16,6 +16,7 @@ public:
 	float pattern23;
 	float pattern24;
 	float udotime;
+	bool breadyforaction;
 	void MoveMent();
 	void BossMoveMent(float position, float cycle, float radius);
 	void PatternMNG(int patternnum, float shootpatterndelay);

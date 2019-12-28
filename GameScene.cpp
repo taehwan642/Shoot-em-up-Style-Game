@@ -41,6 +41,12 @@ void GameScene::Init()
 	Blood->Create(L"Blood.png");
 	Blood->_position = { 180,700 };
 	Blood->AddRenderTarget();
+	for (int i = 0; i < 3; i++)
+	{
+		PlayerHP[i] = new Sprite();
+		PlayerHP[i]->Create(L"redplane.png");
+		PlayerHP[i]->_position = {330,(float)(i * 50) + 30};
+	}
 #pragma endregion
 	shootingtimer = 0;
 }
@@ -57,9 +63,10 @@ void GameScene::Update()
 		}
 		BackGroundScroll[i]->_position.y += 5.0f;
 	}
-
-
-
+	//330 30
+	cout << PlayerMNG::GetInstance()->player->_position.x << " " << PlayerMNG::GetInstance()->player->_position.y << endl;
+	if (DXUTWasKeyPressed('R'))
+		BossMNG::GetInstance()->boss->breadyforaction = true;
 
 	if (DXUTIsKeyDown(VK_SPACE))
 	{

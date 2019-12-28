@@ -98,9 +98,7 @@ void BossBullet::Pattern3()
 		_color.g = 0;
 		targeted = true;
 	}
-	float size = sqrt(v.x * v.x + v.y * v.y);
-	v.x /= size;
-	v.y /= size;
+
 	_position += v * speed;
 
 }
