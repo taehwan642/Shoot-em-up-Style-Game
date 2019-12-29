@@ -71,7 +71,7 @@ void GameScene::Update()
 
 
 	if (DXUTWasKeyPressed('M'))
-		MonstersMNG::GetInstance()->SpawnMonster(1);
+		MonstersMNG::GetInstance()->SpawnMonster(0);
 
 	if (DXUTIsKeyDown(VK_SPACE))
 	{

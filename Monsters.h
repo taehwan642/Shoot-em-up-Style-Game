@@ -1,6 +1,8 @@
 #pragma once
 #include "Sprite.h"
 #include "Types.h"
+#include "Player.h"
+#include "Bullet.h"
 class Monsters : public Sprite
 {
 public:
@@ -11,10 +13,14 @@ public:
 	float timer;
 	float newx;
 	float newy;
+	float firstx;
+	float firsty;
+	int circletime;
 	float radius;
 	vector2 newpos;
 	Monsters();
 	void Movement();
+	void Collision();
 	void Update() override;
 };
 
