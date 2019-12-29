@@ -21,6 +21,7 @@ public:
 	Sprite* PlayerHP[3];
 	vector2 cameraPos;
 	float shootingtimer;
+	float monsterspawntimer;
 	void Init() override;
 	void Update() override;
 	void OnExit() override;

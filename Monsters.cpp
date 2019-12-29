@@ -66,7 +66,6 @@ void Monsters::Collision()
 	if (IntersectRect(&rr, &PlayerMNG::GetInstance()->player->GetRect(), &GetRect()))
 	{
 		PlayerMNG::GetInstance()->player->HP--;
-		cout << "!" << endl;
 		_visible = false;
 	}
 
@@ -78,7 +77,6 @@ void Monsters::Collision()
 			if (IntersectRect(&rrr, &it->GetRect(), &GetRect()))
 			{
 				it->ishit = true;
-				cout << "!!!!" << endl;
 				_visible = false;
 			}
 		}
@@ -113,6 +111,7 @@ void MonstersMNG::SpawnMonster(int monsternumber)
 			it->newy = -10;
 			int randx = ((rand() % 300) + 30);
 			it->newx = randx;
+			it->circletime = 0;
 			it->_position = { it->newx,it->newy };
 			//30 180
 			it->firsty = (rand() % 150) + 30;

@@ -45,17 +45,25 @@ void GameScene::Init()
 		PlayerHP[i] = new Sprite();
 		PlayerHP[i]->Create(L"redplane.png");
 		PlayerHP[i]->_position = {330,(float)(i * 50) + 30};
+		PlayerHP[i]->_visible = false;
 	}
 #pragma endregion
 	shootingtimer = 0;
+	monsterspawntimer = 0;
 }
 
 void GameScene::Update()
 {
+
+	for (int i = 0; i < PlayerMNG::GetInstance()->player->HP; i++)
+	{
+		PlayerHP[i]->_visible = true;
+	}
 	if (BossMNG::GetInstance()->boss->breadyforaction)
 		Blood->_visible = true;
 
 	shootingtimer += Time::deltaTime;
+	monsterspawntimer += Time::deltaTime;
 	Blood->_scale = { (BossMNG::GetInstance()->boss->HP / 7),1 };
 	for (int i = 0; i < 2; i++)
 	{
@@ -70,8 +78,11 @@ void GameScene::Update()
 		BossMNG::GetInstance()->boss->breadyforaction = true;
 
 
-	if (DXUTWasKeyPressed('M'))
+	if (monsterspawntimer > 2)
+	{
 		MonstersMNG::GetInstance()->SpawnMonster(0);
+		monsterspawntimer = 0;
+	}
 
 	if (DXUTIsKeyDown(VK_SPACE))
 	{
