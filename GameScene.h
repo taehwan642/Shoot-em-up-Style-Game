@@ -19,7 +19,6 @@ class GameScene :
 public:
 	Sprite* BackGroundScroll[2];
 	Sprite* Blood;
-	Sprite* PlayerHP[3];
 	vector2 cameraPos;
 	float shootingtimer;
 	float monsterspawntimer;

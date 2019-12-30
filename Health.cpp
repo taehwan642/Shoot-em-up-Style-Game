@@ -33,9 +33,10 @@ void HealthMNG::HealthControl(int num)
 		if (healths[0]->_visible && healths[1]->_visible && healths[2]->_visible)
 			return;
 
-		if (healths[0]->_visible && healths[1]->_visible && !healths[2]->_visible)
+		if (!healths[0]->_visible && !healths[1]->_visible && !healths[2]->_visible)
 		{
 			healths[2]->_visible = true;
+			PlayerMNG::GetInstance()->player->HP++;
 			return;
 		}
 
@@ -61,4 +62,13 @@ void HealthMNG::HealthControl(int num)
 			}
 		}
 	}
+}
+
+void HealthMNG::DeleteHealth()
+{
+	for (auto it : healths)
+	{
+		delete it;
+	}
+	healths.clear();
 }

@@ -16,4 +16,5 @@ public:
 	void CreateHealth();
 	void SetHealth();
 	void HealthControl(int num);
+	void DeleteHealth();
 };

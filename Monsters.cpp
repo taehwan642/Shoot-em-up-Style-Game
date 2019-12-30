@@ -93,7 +93,26 @@ void Monsters::Update()
 	Collision();
 
 	if (fHP < 0)
+	{
 		_visible = false;
+		int randnum = (rand() % 1);
+		if (randnum == 0)
+		{
+			for (auto it : ItemMNG::GetInstance()->itemss)
+			{
+				if (!it->_visible)
+				{
+					it->_position = _position;
+					it->_visible = true;
+					cout << "!!!!@#!!@" << endl;
+
+					//이거 랜덤값으로 수정해야하는데일단하자
+					it->itemnum = 0;
+					return;
+				}
+			}
+		}
+	}
 }
 
 MonstersMNG::MonstersMNG()

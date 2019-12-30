@@ -26,7 +26,7 @@ void GameScene::Init()
 	MonstersMNG::GetInstance()->CreateMonster();
 	HealthMNG::GetInstance()->CreateHealth();
 	HealthMNG::GetInstance()->SetHealth();
-
+	ItemMNG::GetInstance()->ItemCreate();
 	BulletMNG::GetInstance()->CreateBullet();
 	BossMNG::GetInstance()->CreateBoss();
 #pragma endregion
@@ -59,11 +59,6 @@ void GameScene::Init()
 
 void GameScene::Update()
 {
-
-	//for (int i = 0; i < PlayerMNG::GetInstance()->player->HP; i++)
-	//{
-	//	PlayerHP[i]->_visible = true;
-	//}
 	if (BossMNG::GetInstance()->boss->breadyforaction)
 		Blood->_visible = true;
 
@@ -89,8 +84,25 @@ void GameScene::Update()
 		MonstersMNG::GetInstance()->SpawnMonster(0);
 		monsterspawntimer = 0;
 	}
+	if (DXUTIsKeyDown('F'))
+	{
+		for (auto it : ItemMNG::GetInstance()->itemss)
+		{
+			if (!it->_visible)
+			{
+				it->_position = { 180,300 };
+				it->_visible = true;
+				cout << "!!!!@#!!@" << endl;
 
+				//이거 랜덤값으로 수정해야하는데일단하자
+				it->itemnum = 0;
+				return;
+			}
+		}
 
+	}
+
+	
 	if (DXUTIsKeyDown(VK_SPACE))
 	{
 		if (PlayerMNG::GetInstance()->player->freshootingtime < shootingtimer)
@@ -121,12 +133,10 @@ void GameScene::OnExit()
 	delete BossMNG::GetInstance()->boss;
 	delete PlayerMNG::GetInstance()->player->collider;
 	delete PlayerMNG::GetInstance()->player;
-	for (int i = 0; i < 3; i++)
-	{
-		delete PlayerHP[i];
-	}
+	HealthMNG::GetInstance()->DeleteHealth();
 	BulletMNG::GetInstance()->DeleteBullet();
 	BossBulletMNG::GetInstance()->DeleteBullet();
 	MonstersMNG::GetInstance()->DeleteMonster();
+	ItemMNG::GetInstance()->DeleteItem();
 	delete Blood;
 }
