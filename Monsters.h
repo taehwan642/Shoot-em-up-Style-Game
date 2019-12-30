@@ -3,6 +3,7 @@
 #include "Types.h"
 #include "Player.h"
 #include "Bullet.h"
+#include "Health.h"
 class Monsters : public Sprite
 {
 public:
@@ -27,7 +28,9 @@ public:
 class MonstersMNG : public Singleton <MonstersMNG>
 {
 public:
+	MonstersMNG();
 	vector<Monsters*> mons;
+	float monshealth;
 	void CreateMonster();
 	void SpawnMonster(int monsternumber);
 	void DeleteMonster();

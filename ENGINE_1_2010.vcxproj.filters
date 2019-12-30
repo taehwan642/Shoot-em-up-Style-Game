@@ -78,6 +78,9 @@
     <Filter Include="GAME\Characters\Items">
       <UniqueIdentifier>{1d2acca8-aeb2-4c5f-bf24-47603eb97fd4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GAME\Characters\HealthUI">
+      <UniqueIdentifier>{7259e73d-d539-4e84-bb6e-2a38a41a4cfa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="DXUT\Optional\directx.ico">
@@ -194,6 +197,9 @@
     <ClCompile Include="Items.cpp">
       <Filter>GAME\Characters\Items</Filter>
     </ClCompile>
+    <ClCompile Include="Health.cpp">
+      <Filter>GAME\Characters\HealthUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -255,6 +261,9 @@
     </ClInclude>
     <ClInclude Include="Items.h">
       <Filter>GAME\Characters\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Health.h">
+      <Filter>GAME\Characters\HealthUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

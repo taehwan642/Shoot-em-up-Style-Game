@@ -4,14 +4,28 @@
 Items::Items()
 {
 	itemnum = 0;
+	Create(L"explode1.png");
+	_visible = false;
 }
 
 void Items::Movement()
 {
+	_position.y += 3;
+
 }
 
 void Items::ItemEffect()
 {
+
+}
+
+void Items::Update()
+{
+	if (!_visible)
+		return;
+
+	Movement();
+
 }
 
 void ItemMNG::ItemCreate()

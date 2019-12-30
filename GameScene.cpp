@@ -22,9 +22,12 @@ void GameScene::Init()
 #pragma region MNGinit
 	Camera::GetInstance()->CameraInit();
 	PlayerMNG::GetInstance()->CreatePlayer();
-	BulletMNG::GetInstance()->CreateBullet();
 	BossBulletMNG::GetInstance()->CreateBullet();
 	MonstersMNG::GetInstance()->CreateMonster();
+	HealthMNG::GetInstance()->CreateHealth();
+	HealthMNG::GetInstance()->SetHealth();
+
+	BulletMNG::GetInstance()->CreateBullet();
 	BossMNG::GetInstance()->CreateBoss();
 #pragma endregion
 
@@ -40,30 +43,34 @@ void GameScene::Init()
 	Blood->_position = { 180,700 };
 	Blood->_visible = false;
 	Blood->AddRenderTarget();
-	for (int i = 0; i < 3; i++)
+	/*for (int i = 0; i < 3; i++)
 	{
 		PlayerHP[i] = new Sprite();
 		PlayerHP[i]->Create(L"redplane.png");
 		PlayerHP[i]->_position = {330,(float)(i * 50) + 30};
 		PlayerHP[i]->_visible = false;
-	}
+	}*/
 #pragma endregion
 	shootingtimer = 0;
 	monsterspawntimer = 0;
+	monsterhealthtimer = 0;
+	bosscomeout = 0;
 }
 
 void GameScene::Update()
 {
 
-	for (int i = 0; i < PlayerMNG::GetInstance()->player->HP; i++)
-	{
-		PlayerHP[i]->_visible = true;
-	}
+	//for (int i = 0; i < PlayerMNG::GetInstance()->player->HP; i++)
+	//{
+	//	PlayerHP[i]->_visible = true;
+	//}
 	if (BossMNG::GetInstance()->boss->breadyforaction)
 		Blood->_visible = true;
 
 	shootingtimer += Time::deltaTime;
 	monsterspawntimer += Time::deltaTime;
+	monsterhealthtimer += Time::deltaTime;
+	bosscomeout += Time::deltaTime;
 	Blood->_scale = { (BossMNG::GetInstance()->boss->HP / 7),1 };
 	for (int i = 0; i < 2; i++)
 	{
@@ -74,15 +81,15 @@ void GameScene::Update()
 		BackGroundScroll[i]->_position.y += 5.0f;
 	}
 
-	if (DXUTWasKeyPressed('R'))
+	if(bosscomeout > 120)
 		BossMNG::GetInstance()->boss->breadyforaction = true;
-
 
 	if (monsterspawntimer > 2)
 	{
 		MonstersMNG::GetInstance()->SpawnMonster(0);
 		monsterspawntimer = 0;
 	}
+
 
 	if (DXUTIsKeyDown(VK_SPACE))
 	{
@@ -91,6 +98,12 @@ void GameScene::Update()
 			BulletMNG::GetInstance()->SpawnBullet();
 			shootingtimer = 0;
 		}
+	}
+
+	if (monsterhealthtimer > 30)
+	{
+		MonstersMNG::GetInstance()->monshealth++;
+		monsterhealthtimer = 0;
 	}
 
 	if (DXUTWasKeyPressed('P'))

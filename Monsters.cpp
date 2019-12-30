@@ -17,7 +17,7 @@ Monsters::Monsters()
 	Create(L"grayplane.png");
 
 	_position = { newx,newy };
-	_scale = { 0.8f,0.8f };
+	_scale = { 2,2 };
 	_visible = false;
 	isUI = false;
 }
@@ -66,6 +66,7 @@ void Monsters::Collision()
 	if (IntersectRect(&rr, &PlayerMNG::GetInstance()->player->GetRect(), &GetRect()))
 	{
 		PlayerMNG::GetInstance()->player->HP--;
+		HealthMNG::GetInstance()->HealthControl(1);
 		_visible = false;
 	}
 
@@ -77,7 +78,7 @@ void Monsters::Collision()
 			if (IntersectRect(&rrr, &it->GetRect(), &GetRect()))
 			{
 				it->ishit = true;
-				_visible = false;
+				fHP--;
 			}
 		}
 	}
@@ -90,6 +91,14 @@ void Monsters::Update()
 	//cout << _position.x << " " << _position.y << endl;
 	Movement();
 	Collision();
+
+	if (fHP < 0)
+		_visible = false;
+}
+
+MonstersMNG::MonstersMNG()
+{
+	monshealth = 3;
 }
 
 void MonstersMNG::CreateMonster()
@@ -108,6 +117,7 @@ void MonstersMNG::SpawnMonster(int monsternumber)
 		if (!it->_visible)
 		{
 			it->monsternum = monsternumber;
+			it->fHP = monshealth;
 			it->newy = -10;
 			int randx = ((rand() % 300) + 30);
 			it->newx = randx;

@@ -6,6 +6,7 @@ public:
 	Items();
 	void Movement();
 	void ItemEffect();
+	void Update() override;
 	int itemnum;
 };
 

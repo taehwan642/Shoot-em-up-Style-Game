@@ -1,8 +1,20 @@
 ﻿  ENGINE_1.cpp
 C:\Users\taehw\Documents\GitHub\Shoot-em-up-Style-Game\ENGINE_1.cpp(18,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   GameScene.cpp
-  Items.cpp
+  Health.cpp
+C:\Users\taehw\Documents\GitHub\Shoot-em-up-Style-Game\Health.cpp(42,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\taehw\Documents\GitHub\Shoot-em-up-Style-Game\Health.cpp(54,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   MainScene.cpp
-  Player.cpp
+  Monsters.cpp
+C:\Users\taehw\Documents\GitHub\Shoot-em-up-Style-Game\Monsters.cpp(66): warning C4238: 비표준 확장이 사용됨: 클래스 rvalue를 lvalue로 사용했습니다.
+C:\Users\taehw\Documents\GitHub\Shoot-em-up-Style-Game\Monsters.cpp(78): warning C4238: 비표준 확장이 사용됨: 클래스 rvalue를 lvalue로 사용했습니다.
+C:\Users\taehw\Documents\GitHub\Shoot-em-up-Style-Game\Monsters.cpp(66,67): warning C4238: 비표준 확장이 사용됨: 클래스 rvalue를 lvalue로 사용했습니다.
+C:\Users\taehw\Documents\GitHub\Shoot-em-up-Style-Game\Monsters.cpp(66,79): warning C4238: 비표준 확장이 사용됨: 클래스 rvalue를 lvalue로 사용했습니다.
+C:\Users\taehw\Documents\GitHub\Shoot-em-up-Style-Game\Monsters.cpp(78,40): warning C4238: 비표준 확장이 사용됨: 클래스 rvalue를 lvalue로 사용했습니다.
+C:\Users\taehw\Documents\GitHub\Shoot-em-up-Style-Game\Monsters.cpp(78,52): warning C4238: 비표준 확장이 사용됨: 클래스 rvalue를 lvalue로 사용했습니다.
+C:\Users\taehw\Documents\GitHub\Shoot-em-up-Style-Game\Monsters.cpp(123,15): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\taehw\Documents\GitHub\Shoot-em-up-Style-Game\Monsters.cpp(127,32): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   코드를 생성하고 있습니다...
+  LINK : C:\Users\taehw\Documents\GitHub\Shoot-em-up-Style-Game\Debug\ENGINE_1.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
+Boss.obj : warning LNK4075: '/EDITANDCONTINUE'이(가) '/SAFESEH' 사양으로 인해 무시됩니다.
   ENGINE_1_2010.vcxproj -> C:\Users\taehw\Documents\GitHub\Shoot-em-up-Style-Game\Debug\ENGINE_1.exe
